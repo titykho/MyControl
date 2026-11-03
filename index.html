@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Menu</title>
+    <link rel="stylesheet" href="./editing.css">
+    <!-- <script src ="/editing.js" defer></script> -->
+</head>
+<body> 
+    <div class ="M-con">  
+        <div class =Head1 >
+            <div id ="pop-up">
+                 <p class="P1" onclick="clickhead()">&#9776</p>
+            </div>      
+            <div class ="promos"> 
+                <div class="promo-text">
+                     cobra car alarm promo 10+1 central
+                </div>
+            </div>
+        </div> 
+       
+        <nav id="nav-1" style="display: none;"> 
+            <h2 style="text-align: center;">Menu</h2>
+            <hr style="width: 100%; margin: auto;">
+            <ul class="list-1">
+                <ul class="list-2-1" onclick="clicklist1()">TOKEN UPDATE
+                    <div id="list-1-2" style="display: none;">
+                        <li> <a href="#">Token Renew</a></li>
+                        <li onclick="MemberApproval()"> <a href="#"> Approval  </a> </li>
+                     </div>
+                </ul>    
+                <ul class="list-1-3" onclick="clicklist2()">ITEMS
+                    <div id="list-1-3" style="display: none;" >
+                        <li> <a href="#">Availability</a></li>
+                        <!-- <li > <a href="product.html">Edit Item</a></li> -->
+                         <li onclick="availability()"> <a href="#">Edit Item</a></li>
+                        <li> <a href="#">Add New Item</a></li>
+                    </div>
+                </ul>
+            </ul>
+        </nav>
+
+        <div class="MBody">
+                <div id = "Member-Approval" style="display: none;">
+                    <div class="Member-Search"> 
+                        <input type="text" class="input-type" name="username" onkeydown="checkmember(event)" style="width:55%;" placeholder="Enter Member Name or Press Enter to View All">  
+                        <button type="button" class="close-btn" onclick="backtomenu1()"> Back to Menu</button>
+                    </div> 
+                     <div class ="table-permision">  
+                        <table id="table-p" >
+                            <thead>
+                                <tr>
+                                <th>ID</th>
+                                <th>User First Name</th>
+                                <th>User Last Name</th>
+                                <th>Email</th>
+                                <th>Permission</th>
+                                <th>Price %</th>
+                                <th>Connection</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table> 
+                    </div>                           
+                </div>
+
+<!-- ******** -->
+
+                <div id="permissionbox-close">
+                    <div class="permision-box"> <h2 style="text-align: center;">Edit Permission </h2>
+                        <form class="permission-form" id="PermissionFormData">
+                            <div id="per-Form">
+                                <label for="Puserfname">User First Name : </label>
+                                <input type="text" id="Puserfname" name="userfname" maxlength="30" readonly style ="background-color: rgb(205, 225, 249);">
+                            </div>  
+                            <div id="per-Form">
+                                <label for="Puserlname">User Last Name : </label>
+                                <input type="text" id="Puserlname" name="userlname" maxlength="30" readonly style ="background-color: rgb(205, 225, 249);">
+                            </div> 
+                            <div id="per-Form">
+                                <label for="Puseremail">User Email : </label>
+                                <input type="email" id="Puseremail" name="userEmail" readonly maxlength="50"  style ="background-color: rgb(205, 225, 249);">
+                            </div>   
+                            <div id="dForm">Permission To Access : 
+                                <select id="Ppermission" name="permission">
+                                    <option value="true">YES</option>
+                                    <option value="false">NO</option>
+                                </select>
+                            </div>   
+                            <div id="dForm">
+                                <label for="Pprice">Price Assign %: </label>
+                                <input type="float" id="Pprice" name="pricefor" >
+                            </div>  
+                            <div id="dForm">
+                                <label for="Pcount">Total Access Device: </label>
+                                <input type="number" id="Pcount" name="count" >
+                            </div>  
+
+                            <div class="center-Btn">
+                                <button type ="reset" class="close-btn" onclick="closePermissionAlert()">CLOSE</button>
+                                <button type ="submit" class="close-btn" >Save</button>
+                            </div>                                                        
+                        </form>
+                    </div>  
+                </div>
+
+ 
+    <!-- *****       -->
+
+                <div id = "Div-Edit" style="display: none;">   
+                    <div class="searchbar"> 
+                        <input type="text" class="input-type" name="part_no" onkeydown="checkEnter(event)" style="width:55%;"placeholder="Enter Part No or Press Enter to View All">  
+                        <button type="button" class="close-btn" onclick="backtomenu1()"> Back to Menu</button>
+                    </div>  
+
+                    <div class ="table-div">  
+                        <table id="table-1">
+                            <thead>
+                                <tr>
+                                <th>ID</th>
+                                <th>Part No</th>
+                                <th>Brand</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table> 
+                    </div>      
+                </div>
+                <div id="editbox-close" class ="diplay-edit">
+                    <div class="alert-box"> <h2 style="text-align: center;">Edit Item </h2>
+                        <form class="Form-container" id="myFormData">
+                            <div id="dForm">
+                                <label for="fPartno">PART NO</label>
+                                <input type="text" id="fPartno" name="partno" maxlength="30" readonly style ="background-color: rgb(205, 225, 249);">
+                            </div>                            
+                            <div id="dForm">
+                                <label for="fbrand">BRAND</label>
+                                    <select name="brand" id="fbrand" class="Mybrand" >
+                                    </select>
+                            </div>
+                            <div id="dForm">
+                                <label for="fdesrip">DESCRIPTION</label>
+                                 <textarea id="fdesrip" name="desrip" class ="text-area"></textarea>
+                            </div>
+                            <div id="dForm">
+                                <label for="fprice">PRICE</label>
+                                <input type="number" id="fprice" name="price" step="0.01" min="0" placeholder="Enter Price" required>
+                            </div>
+                            <div id="dForm">
+                                <label for="fcategory">CATEGORY</label>
+                                <select name="category" id="fcategory" class="Mycategory" style="width:40%"></select>
+                            </div>
+                            <div id="dForm">AVAILABLE : 
+                                <select id="favailable" name="active">
+                                    <option value= "true" >YES</option>
+                                    <option value= "false" >NO</option>
+                                </select>
+                            </div>  
+                        <div class="center-Btn">
+                            <button type ="reset" class="close-btn" onclick="closeCustomAlert()">CLOSE</button>
+                            <button type ="submit" class="close-btn" >Save</button>
+                        </div>                                                              
+                        </form>
+                    </div>
+
+                </div>
+        </div>
+    </div>
+</body>
+    <script src ="./editing.js"></script>
+</html>
