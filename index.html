@@ -153,12 +153,24 @@
                                 <label for="fcategory">CATEGORY</label>
                                 <select name="category" id="fcategory" class="Mycategory" style="width:40%"></select>
                             </div>
-                            <div id="dForm">AVAILABLE : 
-                                <select id="favailable" name="active">
-                                    <option value= "true" >YES</option>
-                                    <option value= "false" >NO</option>
-                                </select>
-                            </div>  
+                            <div id="dForm">
+                                <label for="fpromo">PROMO</label>
+                                <textarea id="fpromo" name="promo" class ="text-area"> </textarea>
+                            </div>    
+                            <div style="display: flex; justify-content: space-evenly;" >                        
+                                <div id="dForm" style="display: inline;" >AVAILABLE  : 
+                                    <select id="favailable" name="active">
+                                        <option value= "true" >YES</option>
+                                        <option value= "false" >NO</option>
+                                    </select>
+                                </div>  
+                                <div id = "dform" style="display: inline;">ITEM STATUS FOR DELETION  :
+                                    <select name="deletion" id="fdeletion"> 
+                                        <option value= "true" >YES</option>
+                                        <option value= "false" >NO</option>
+                                    </select>
+                                </div>  
+                            </div>
                         <div class="center-Btn">
                             <button type ="reset" class="close-btn" onclick="closeCustomAlert()">CLOSE</button>
                             <button type ="submit" class="close-btn" >Save</button>
