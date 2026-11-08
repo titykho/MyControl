@@ -1,5 +1,4 @@
 
-
     function availability(){
         document.getElementById('nav-1').style.display="none"
         const  btnx = document.getElementById('Div-Edit');
@@ -103,7 +102,8 @@ fetch(dropboxUrl)
 
 
 function getJSONitems(){
-//const dropboxUrl2 ='https://dl.dropboxusercontent.com/scl/fi/9et4etcdm24beisqqodhu/items2.json?rlkey=wu4xk6zg2alay7qgjbqhoi3yi&st=rhjb3zwh&raw=1';
+
+// const dropboxUrl2 = 'https://dl.dropboxusercontent.com/scl/fi/ueosrbyx67b53c2rjd6le/item4.json?rlkey=ftm8b07i4c6k0zxnamd9cz732&st=6x81c3g7&dl=0'
 const dropboxUrl2 = 'https://dl.dropboxusercontent.com/scl/fi/998tf3rypwb4kidt396d8/items.json?rlkey=h4gebw2odff7tbktvs9ki64sl&st=a0xk3clk&dl=0'
 fetch(dropboxUrl2)
   .then(response => response.json())
@@ -150,6 +150,8 @@ function ViewItems2(data1,LookItem) {
                                          document.getElementById('fdesrip').value =  data1.desrip
                                          document.getElementById("fprice").value = Number(data1.price);
                                          document.getElementById("fcategory").value = data1.category;
+                                         document.getElementById("fpromo").value = data1.promo;
+                                         document.getElementById("fdeletion").value = data1.deletion;
                                          document.getElementById("favailable").value = data1.active ;
                                          document.getElementById('editbox-close').style.display = 'block';                               
                                         });
@@ -225,6 +227,8 @@ const nexform = document.getElementById("myFormData")
                     item.desrip = data.desrip;
                     item.active = JSON.parse(data.active);
                     item.category = data.category;
+                    item.deletion = JSON.parse(data.deletion);
+                    item.promo = data.promo;
                     //  console.log("Item Updated:", item.active, data.active, data.price);
                     //  console.log(item)
               }  
