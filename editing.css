@@ -34,7 +34,7 @@
         }
             @keyframes scroll-left {
                 0% {
-                    transform: translateX(200%); /* Start completely off-screen to the right */
+                    transform: translateX(100dvw); /* Start completely off-screen to the right */
                 }
                 100% {
                     transform: translateX(-100%); /* Finish completely off-screen to the left */
@@ -195,7 +195,7 @@
     background-color: rgba(213, 214, 212, 0.532);
     z-index: 10000;
 }
-#permissionbox-close {
+#permissionbox-close, #promo-close {
    display: none;
     position: fixed;
     top: 0; left: 0; width: 100dvw; height: 100dvh;
@@ -237,7 +237,7 @@
 }
 
 
-.Form-container, .permission-form{
+.Form-container, .permission-form, .promo-container{
     display: flex;
     gap: 3px;
     flex-direction: column;
@@ -253,7 +253,7 @@ input{
     font-size: clamp(10px, 2dvw, 3rem);
     padding-left: 5px;
 }
-.alert-box, .permision-box{
+.alert-box, .permision-box, .promo-box{
     font-size: clamp(1rem, 5vw, 5rem);
     position: absolute;
     top: 50dvh; left: 50dvw;
