@@ -1,4 +1,10 @@
 
+    function openpromomsg(){
+          //  alert("open na")
+        document.getElementById('promo-close').style.display="block"
+    }
+
+
     function availability(){
         document.getElementById('nav-1').style.display="none"
         const  btnx = document.getElementById('Div-Edit');
@@ -41,11 +47,31 @@
 
     // **************** Edit items ***************************
 
-let Items  = []; Mbrand = []; Mcategory = []; PermissionData = [];
+let Items  = []; Mbrand = []; Mcategory = []; PermissionData = [], PromoMsgTxt='';
 getJSONitems();
 getJSONcategory(); 
 getJSONbrand();
 getJSONpermission();
+getPromotxt();
+
+
+
+
+
+function getPromotxt(){
+    //ORIGINAL ITEM
+ const dropboxUrl ="https://dl.dropboxusercontent.com/scl/fi/7e07h5jar419g6f7mvmm1/Promotxt.json?rlkey=l2rl9vm00zk5i8mfu3d9ejlbr&st=aqk14007&dl=0"
+    fetch(dropboxUrl)
+      .then(response => response.json())
+      .then(jsonData => {
+        let jsonData1=JSON.parse(JSON.stringify(jsonData));
+        PromoMsgTxt = jsonData1.promo;
+        document.querySelector(".promo-text").innerText= PromoMsgTxt;
+        document.getElementById('fpromomsg').innerText= PromoMsgTxt;
+        // console.log("json string ",promomsg,jsonData1)    // console.log("JSON Data:", jsonData);
+      })
+      .catch(error => console.error("Error fetching JSON:", error));
+}
 
 function getJSONpermission(){
    // const dropboxUrl= 'https://dl.dropboxusercontent.com/scl/fi/chri911mbm8dg8jqpij7e/permbak.json?rlkey=rfuaextda796booaj7yov2886&st=bxv6zvqi&dl=0';
@@ -181,6 +207,9 @@ function con_price(nPrice){
 function closeCustomAlert() {
           document.getElementById('editbox-close').style.display = 'none';             
 }
+function closepromomsg() {
+          document.getElementById('promo-close').style.display = 'none';             
+}
 function closePermissionAlert() {
           document.getElementById('permissionbox-close').style.display = 'none';             
 }
@@ -190,9 +219,9 @@ const tokenName = 'https://dl.dropboxusercontent.com/scl/fi/a1x40x537t6s7xwq9rho
     
       //      const ACCESS_TOKEN ='sl.u.AG1VtIoIEKJ_thHE2g_ADzkeFXZycrqMGeaSrgpt0GzMmaZRI2A72yPEC6z-1FLz31XayuPP-6XuaQo9Qq9d-mysnj6f0D8_3oo0zGSmn7Idbn5pHJEKpMbBwiUxwQDkheHunOf7BR3B3tgGLeLdN-9xo-Wb4H-_SvwqgCw1_0A_iETdc00RzmRo50kzTzygueNeWWoGx0MygjZ8mKUBvKI3iUV-E47pZcfsAsbQPaaJtcU_i4Lg7fZ59a7v5xm0lFzt7r3hAjIrr7TUiSBnS1f_EKPt860PUTdgRHyS67G0_nk99N8f-BQ72dfgk3Ilef6qcaw75-iNIawWd2SvWtRnXCVhfheaBPJeuyDtKWaJS8_DsCVx64pTfamKl9u1wHu2sx8Hu-IR-r1rYh48Jz3xZQJnRuQ3bTWg2qgXThfMN-wTLF7nh8ezt7pjgBgbKCDdXouO-lzGThfsH8dGcU4dW252LjA1G_bFlwS1Z4HOdQuMgGA4497UV0hueSiZB8Amym3585ipLBJxqFt6yxV1ujvS985nQWdEK8B1uRBtztmJOnC_Xw99-VA0ZTzC0vJX6CWUM6PTeUQbgxm8aVlqF7CC3ZR4XAHdyi-CE2lMN-QNp8x4Yg7V3yyQHVWRZ3A-OmHi46qD4jxBUBdpr4RuzhDHa_kJyDGZzPOL7JYZVxVri4DmYVDR_-EUfH5tTvMJoD5tL5k2zowqui2KmTp_OzmHFkkKXBputBN_czwujPXI6RijAU_qlXLFhMpB6Ylp-jqhN8BH_YHhjZTvZ1SMaEzLnAEB7FRcpZ8eul-Dvok7g3O296EKCIcf1mJn-lm4dXViEW2caD_YBOmKzcTJw7b8t-fnZikU80TynonT88OR6lX6QL-k0qAsI2nmKgNEJCrtN6YBm2wsZgEIxH1Qr6EoVUNQhj-5wgWsuBbGsy1s-ioHQcv4e7XO2eC6C5LnRkCTJr-ChxVPiBiW4fz2mAY5YnfnDuxVumC8GnOO_aXN3mgDKQ52-yhxoQrA3eGrr8YVwOUArIKcpY2EFlFfcktb0Lvo1ggGGJZxhBgbLGnnhHjAUdPho_mO_Z5Mo02MsSovogJTFC4gYTAbwVUDQvzdz9x75-SyFBCotaVg3XHUPZpxeeHt38Z35WHhMoiUFwhR_cqDgvqc1n-fgVdqpQKzVoDYJNQGRpM2eGtmDFwKd-Sv6DmIqY6hPXhu_6UOjWknDpDfblgjZMYS7j1XBVVa9PT3g1moKQWkGdytvKJ6TuwOqYpm_NgqpWf6yIPdR5ZEEdq0XiVXq3xDWwJWy3hYJA9S5_6d3L5Fu-soN5kJtdJVLfrLSUEHetgBxOGzvQwrSACaix3Y5H9iBjC7iGf8MI6x8YBukQDeUYSS__0d1iMgERSfZfe3Y-9ydCW-YkdQPciQUWrHCuv2vnPzuNLz0qDzNvxR0JmZ8_qArWP3FIz3K7QwOgznBaQ8e-Y'
     
-    let  ACCESS_TOKEN = ''; 
+let  ACCESS_TOKEN = ''; 
 
-    looktokenName();
+looktokenName();
 
 function looktokenName() {
     fetch(tokenName)
@@ -205,11 +234,62 @@ function looktokenName() {
 
 // ************** save items to dropbox **********************
 
+const PromoForm = document.getElementById("promo-formdata")
+   // getPromotxt();
+    //const promoURL ="https://dl.dropboxusercontent.com/scl/fi/7e07h5jar419g6f7mvmm1/Promotxt.json?rlkey=l2rl9vm00zk5i8mfu3d9ejlbr&st=aqk14007&dl=0"
+     const promoURL = 'https://content.dropboxapi.com/2/files/upload'; 
+     PromoForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        let mypromoObj = new FormData(PromoForm);
+        let promodata = Object.fromEntries(mypromoObj);
+        let xpromo =promodata.promo.replace(/[\r\n]+/g, ", ");    
+       // promodata[0].promo = xpromo;
+       console.log(JSON.stringify(xpromo));
+
+        // const tempo = PromoMsgTxt.map(pro => {
+        //     pro[0].promo = xpromo;
+        // })
+    //    console.log(JSON.stringify(temp));
+       document.getElementById('promo-close').style.display = 'none'; 
+
+         const dropboxArgs = {
+                path: '/Promotxt.json',
+                mode: 'overwrite',
+                autorename: false,
+                mute: false
+            };
+             try {
+                const response = await fetch(promoURL, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${ACCESS_TOKEN}`,
+                            'Dropbox-API-Arg': JSON.stringify(dropboxArgs),
+                             'Content-Type': 'application/octet-stream' 
+                            // 'Content-Type': 'application/json' // Required by Dropbox Content 
+                        }, 
+                        body : JSON.stringify(promodata,null,2) 
+                })
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Dropbox API error: ${errorText}`);
+                }
+                const result = await response.json();
+                // console.log('File uploaded successfully via fetch!', result);
+                alert("Message Save.......")
+                 document.querySelector(".promo-text").innerText= PromoMsgTxt;
+
+            } catch (error) {
+                console.log('Error uploading file via fetch:', error);
+                alert("Token Expired, Saving Data failed...");
+            }      
+  })
+
+
+// ************** save items to dropbox **********************
 const nexform = document.getElementById("myFormData")
   const url = 'https://content.dropboxapi.com/2/files/upload'; 
 //   const mypartno='';
   nexform.addEventListener('submit', async (event) => {
-        
         event.preventDefault();
         
         let formObj = new FormData(nexform);
