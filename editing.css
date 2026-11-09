@@ -30,7 +30,7 @@
         .promo-text{
             font-size: 15px;
             display: inline-block;
-            animation: scroll-left 10s linear infinite;
+            animation: scroll-left 20s linear infinite;
         }
             @keyframes scroll-left {
                 0% {
