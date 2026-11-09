@@ -291,7 +291,7 @@ const nexform = document.getElementById("myFormData")
 //   const mypartno='';
   nexform.addEventListener('submit', async (event) => {
         event.preventDefault();
-        
+        document.getElementById('editbox-close').style.display = 'none'; 
         let formObj = new FormData(nexform);
         let data = Object.fromEntries(formObj);
         const formatted = data.price.toLocaleString('en-US', {  // format numerica no.
@@ -347,8 +347,7 @@ const nexform = document.getElementById("myFormData")
                 console.log(Items)
               //  ViewItems2(Items,data.partno)
             }      
-       document.getElementById('editbox-close').style.display = 'none'; 
-       
+       //document.getElementById('editbox-close').style.display = 'none';      
     } )
 
 
