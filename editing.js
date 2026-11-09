@@ -339,7 +339,8 @@ const nexform = document.getElementById("myFormData")
                 const result = await response.json();
                 // console.log('File uploaded successfully via fetch!', result);
                 //
-                 ViewItems2(Items,data.partno)
+                alert("Item Updated....");
+                 ViewItems2(Items,data.partno);
             } catch (error) {
                 console.log('Error uploading file via fetch:', error);
                  alert("Token Expired, Saving Data failed...");
