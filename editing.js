@@ -398,6 +398,7 @@ perdataform.addEventListener('submit', async (event) => {
                 const result = await response.json();
                 // console.log('File uploaded successfully via fetch!', result);
                 // ViewPermission(PermissionData,data.userfname.toUpperCase());
+                alert("Member Access Updated....");
                 ViewPermission(PermissionData,data.userfname.toUpperCase());
             } catch (error) {
                 console.log('Error uploading file via fetch:', error);
